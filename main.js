@@ -12,9 +12,9 @@ const setActivity = async object => {
             details: `${ object.details ? object.details : "Testing presence" }`,
             state: `${ object.state ? object.state : "Testing RPC" }`,
             startTimestamp: Date.now(),
-            largeImageKey: `${ object.largeImageKey ? object.largeImageKey : ""}`,
+            largeImageKey: `${ object.largeImageKey ? object.largeImageKey : "discord-icon"}`,
             largeImageText: `${ object.largeImageText ? object.largeImageText : "Large image text!"}`,
-            smallImageKey: `${ object.smallImageKey ? object.smallImageKey : ""}`,
+            smallImageKey: `${ object.smallImageKey ? object.smallImageKey : "discord-icon"}`,
             smallImageText: `${ object.smallImageText ? object.smallImageText : "Small image text!"}`,
             instance: false,
             buttons: [

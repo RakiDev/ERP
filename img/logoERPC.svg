@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="111.8799mm"
+   height="33.15958mm"
+   viewBox="0 0 111.8799 33.15958"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="logoERPC.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.3879489"
+     inkscape:cx="172.91702"
+     inkscape:cy="58.71974"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-47.178268,-93.547783)">
+    <rect
+       style="fill:#5864f3;fill-opacity:1;stroke-width:0.499999;paint-order:stroke markers fill"
+       id="rect42587"
+       width="111.8799"
+       height="33.15958"
+       x="47.178268"
+       y="93.547783"
+       ry="16.57979" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2243px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;fill:#aaaaaa;fill-opacity:1;stroke:none;stroke-width:0.26044"
+       x="47.904724"
+       y="118.88064"
+       id="text6654-8"><tspan
+         id="tspan6652-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2243px;font-family:Verdana;-inkscape-font-specification:Verdana;fill:#aaaaaa;fill-opacity:1;stroke-width:0.26044"
+         x="47.904724"
+         y="118.88064"
+         sodipodi:role="line">&lt; ERPC &gt;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2243px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26044"
+       x="49.111111"
+       y="118.19463"
+       id="text6654"><tspan
+         id="tspan6652"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2243px;font-family:Verdana;-inkscape-font-specification:Verdana;fill:#ffffff;fill-opacity:1;stroke-width:0.26044"
+         x="49.111111"
+         y="118.19463"
+         sodipodi:role="line">&lt; ERPC &gt;</tspan></text>
+  </g>
+</svg>

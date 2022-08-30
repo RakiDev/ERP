@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #36393f;
+  min-height: 100vh;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+  
+.img-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+  padding: 2em;
+}
+
+#logo {
+  max-width: 100%;
+    max-height: 100%;
+}
+.title-app {
+  text-align: center;
+  padding: 1rem;
+  color:aliceblue;
+  font-weight:900;
+}
+
+nav {
+  padding: 2em 1em;
+  text-align: center;
+}
+  
+.logo {
+  width: 100px;
+}
+  
+.container {
+  background-color: #36393f;
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  max-width: 350px;
+  box-shadow: 1px 1px 8px #000;
+  border-radius: 5px;
+}
+  
+.friends__mutual {
+  background-color: #7289d2;
+  position: absolute;
+  padding: 1em 4em;
+  border-radius: 5px;
+  top: 1em;
+  right: 1em;
+  font-size: 14px;
+}
+  
+.btn {
+  cursor: pointer;
+  background-color: #7289d6;
+  color: white;
+   border: none;
+ border-radius: 3px;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+  
+form header {
+  text-align: center;
+}
+  
+form header h1 {
+  font-weight: normal;
+  font-size: 20px;
+}
+  
+
+label {
+  color: #8e9297;
+  text-transform: uppercase;
+  font-size: 12px;
+  display: block;
+  padding: 5px 0;
+  font-weight: bold;
+}
+  
+label span {
+  text-transform: lowercase;
+  font-style: italic;
+}
+  
+.loading img {
+  max-width: 100%;
+}
+  
+.form__group {
+  margin-bottom: 1em;
+}
+  
+  /* adding the .error class to the form group shows the red error effect */
+.form__group.error label {
+  color: #ef494c;
+}
+  
+.form__group span {
+  visibility: hidden;
+}
+  
+.form__group.error span {
+  visibility: visible;
+}
+  
+.form__group.error input {
+  border-color: #ef494c;
+}
+  
+input[type="text"],
+input[type="password"] {
+  background-color: #303339;
+  border: 1px solid #222428;
+  width: 100%;
+  font-size: 14px;
+  color: #dcddde;
+  border-radius: 2px;
+  padding: 8px;
+}
+  
+.friends ul {
+  padding: 0;
+}
+  
+.friends li {
+  background-color: #2f3136;
+  list-style: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #7e8186;
+  cursor: pointer;
+}
+  
+.hidden {
+  display: none;
+}

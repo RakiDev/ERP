@@ -17,10 +17,10 @@ const createClient = async (DiscordRPC, transport, clientId) => {
 };
 
 
-const setActivity = (object, RPC) => {
+const setActivity = async (object, RPC) => {
     if (!RPC) return;
     try {
-        RPC.setActivity({
+        await RPC.setActivity({
             details: `${ object.details ? object.details : "Testing presence" }`,
             state: `${ object.state ? object.state : "Testing RPC" }`,
             startTimestamp: Date.now(),
@@ -31,12 +31,12 @@ const setActivity = (object, RPC) => {
             instance: false,
             buttons: [
                 {
-                    label: `Youtube`,
-                    url: `https://www.youtube.com`
+                    label: 'Youtube',
+                    url: 'https://www.youtube.com'
                 },
                 {
-                    label: `Google`,
-                    url: `https://www.google.com`
+                    label: 'Google',
+                    url: 'https://www.google.com'
                 }
             ]
         });
@@ -65,7 +65,7 @@ const loadMainWindow = () => {
 const createTray = () => {
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: 'Show ERPC',
+            label: 'Show ERP',
             click: () => {
                 loadMainWindow();
             }
@@ -113,7 +113,7 @@ ipcMain.handle('rpc-login', async (event, ...args) => {
     const win = BrowserWindow.getAllWindows()[0];
 
     try {
-        RPC.destroy();
+        await RPC.destroy();
     } catch (error) {
         console.log(error);
     } finally {

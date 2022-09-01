@@ -23,8 +23,16 @@
   "build": {
     "appId": "com.rakidev.app",
     "productName": "Easy RP",
-    "target": "NSIS",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./img/icon.ico"
+    },
     "nsis": {
+      "installerIcon": "./img/icon.ico",
+      "uninstallerIcon": "./img/icon.ico",
+      "uninstallDisplayName": "easyrp-uninstaller",
       "allowToChangeInstallationDirectory": true,
       "oneClick": false
     }

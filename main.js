@@ -42,11 +42,7 @@ const setActivity = (object, RPC) => {
             ]
         });
     } catch (error) {
-        const notification = {
-            title: 'Error',
-            body: 'Could not update rich presence'
-        }
-        new Notification(notification).show();
+        notification('Error', 'Could not update rich presence');
         console.error(error);
     }
 }
@@ -95,34 +91,15 @@ const notification = (title, body) => {
 
 app.on('ready', loadMainWindow);
 
-// Fix issue on some operating systems where the application 
-// still remains active even after all windows have been closed
-app.on('window-all-closed', () => {
-});
-
 // Ensure that the application boots up when its icon is clicked in the
 // operating system’s application dock when there are no windows open.
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) loadMainWindow();
 });
 
-ipcMain.handle('show-notification', (event, ...args) => {
-    const notification = {
-        title: 'New Task',
-        body: `Added: ${args[0]}`
-    }
-    new Notification(notification).show();
-});
 
 ipcMain.handle('rpc-handling', (event, ...args) => {
-    if (!RPC) {
-        const notification = {
-            title: 'Error',
-            body: 'You haven\'t logged in yet!'
-        }
-        new Notification(notification).show();
-        return;
-    }
+    if (!RPC) return notification('Error', 'You haven\'t logged in yet');
     setActivity(args[0], RPC);
     console.log('Activity set!', '\nRecieved object: ', args[0]);
 });
@@ -141,7 +118,7 @@ ipcMain.handle('rpc-login', (event, ...args) => {
     } catch (error) {
         console.log(error);
     } finally {
-        console.log('reached here. args: ', args[0].clientId);
+        // If createClient is able to log in then send true to activate Connection status icon. If not turn it off
         if (createClient(DiscordRPC, 'ipc', args[0].clientId)) {
             win.webContents.send('rpc-login-renderer', true)
             return;

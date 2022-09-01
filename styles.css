@@ -48,6 +48,10 @@ nav {
   box-shadow: 1px 1px 8px #000;
   border-radius: 5px;
 }
+
+#bottom-container {
+  padding: 1em;
+}
   
 .friends__mutual {
   background-color: #7289d2;
@@ -147,4 +151,29 @@ input[type="password"] {
   
 .hidden {
   display: none;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-green {
+  transition: background-color 0.5s;
+  background-color:rgb(11, 165, 62);
+}
+
+#status {
+  font-weight: bold;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  bottom: 0.25em;
+}
+
+.status-container {
+  margin-bottom: 10px;
 }

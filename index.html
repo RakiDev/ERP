@@ -16,6 +16,10 @@
 
   <div class="container">
     <div class="login">
+      <div class="status-container">
+        <p id="status">Connection status - </p>
+        <span class="dot" id="switch"></span>
+      </div>
       <form action="#" id="login">
         <div class="form__group">
           <label for="details">Details</label>
@@ -50,6 +54,22 @@
   
         <div class="form__group">
           <input class="btn" id="btnLogin" type="button" value="Update Presence!" />
+        </div>
+
+      </form>
+    </div>
+    
+  </div>
+  
+  <div class="container" id="bottom-container">
+    <div class="login">
+      <form action="#" id="bottom-login">
+        <div class="form__group">
+          <label for="clientId">Client ID</label>
+          <input type="text" id="clientId" placeholder="1014017162851975956"/>
+        </div>
+        <div class="form__group">
+          <input class="btn" id="switchStatus" type="button" value="Log in!" />
         </div>
       </form>
     </div>

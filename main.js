@@ -1,11 +1,24 @@
 const { app, BrowserWindow, ipcMain, Notification, Tray, nativeImage, Menu } = require('electron');
 const path = require('path');
 const DiscordRPC = require('discord-rpc');
-const RPC = new DiscordRPC.Client({ transport: 'ipc' });
-let clientId = '1014017161271975956';
+let RPC;
 let isThereTray = false;
 
-const setActivity = async object => {
+const createClient = (DiscordRPC, transport, clientId) => {
+    let returnValue = true;
+    RPC = new DiscordRPC.Client({ transport });
+    RPC.login({ clientId })
+        .then(console.log('createClient sucess'))
+        .catch(err => {
+            console.error('Could not create client with createClient', err);
+            returnValue = false;
+        });
+    console.log(returnValue);
+    return returnValue;
+};
+
+
+const setActivity = (object, RPC) => {
     if (!RPC) return;
     try {
         RPC.setActivity({
@@ -47,12 +60,10 @@ const loadMainWindow = () => {
             contextIsolation: false
         }
     });
-
     if (!isThereTray) {
         createTray()
         isThereTray = true;
     }
-
     mainWindow.loadFile(path.join(__dirname, 'index.html'));
 }
 
@@ -78,6 +89,10 @@ const createTray = () => {
     tray.setContextMenu(contextMenu);
 }
 
+const notification = (title, body) => {
+    return new Notification({ title, body }).show();
+}
+
 app.on('ready', loadMainWindow);
 
 // Fix issue on some operating systems where the application 
@@ -96,17 +111,41 @@ ipcMain.handle('show-notification', (event, ...args) => {
         title: 'New Task',
         body: `Added: ${args[0]}`
     }
-
     new Notification(notification).show();
 });
 
 ipcMain.handle('rpc-handling', (event, ...args) => {
-    setActivity(args[0]);
+    if (!RPC) {
+        const notification = {
+            title: 'Error',
+            body: 'You haven\'t logged in yet!'
+        }
+        new Notification(notification).show();
+        return;
+    }
+    setActivity(args[0], RPC);
     console.log('Activity set!', '\nRecieved object: ', args[0]);
 });
 
-RPC.login({ clientId })
-    .then(console.log('RPC ON'))
-    .catch(err => console.error(err));
+ipcMain.handle('rpc-login', (event, ...args) => {
+    // clientId is always 19 characters long and only contains strings.
+    // The Number constructor will try to make a type number with the string,
+    // if it's not able to it will return NaN wich is falsy.
+    if (!(args[0].clientId.length === 19 && Number(args[0].clientId))) return notification('Error', 'The client ID is invalid');
+    // There is only one window in the app.
+    // Get it by selecting the first element in the array with [0]
+    const win = BrowserWindow.getAllWindows()[0];
 
-
+    try {
+        RPC.destroy();
+    } catch (error) {
+        console.log(error);
+    } finally {
+        console.log('reached here. args: ', args[0].clientId);
+        if (createClient(DiscordRPC, 'ipc', args[0].clientId)) {
+            win.webContents.send('rpc-login-renderer', true)
+            return;
+        }
+        win.webContents.send('rpc-login-renderer', false);
+    }
+});

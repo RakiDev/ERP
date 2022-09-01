@@ -27,8 +27,7 @@ switchStatus.addEventListener('click', () => {
     ipcRenderer.invoke('rpc-login', processForm(form.elements));
 });
 
-ipcRenderer.on('rpc-login-renderer', onOrOff => {
-    console.log('On or off: ', onOrOff);
+ipcRenderer.on('rpc-login-renderer', (event, onOrOff) => {
     // If onOrOff ture, it turns on the class. If not, it takes it away
     switchDot.classList.toggle('dot-green', onOrOff);
 });

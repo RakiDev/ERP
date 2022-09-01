@@ -4,17 +4,16 @@ const DiscordRPC = require('discord-rpc');
 let RPC;
 let isThereTray = false;
 
-const createClient = (DiscordRPC, transport, clientId) => {
-    let returnValue = true;
+const createClient = async (DiscordRPC, transport, clientId) => {
     RPC = new DiscordRPC.Client({ transport });
-    RPC.login({ clientId })
-        .then(console.log('createClient sucess'))
-        .catch(err => {
-            console.error('Could not create client with createClient', err);
-            returnValue = false;
-        });
-    console.log(returnValue);
-    return returnValue;
+    try {
+        await RPC.login({ clientId });
+    } catch (error) {
+        console.error('Could not create client with createClient', error);
+        return false;
+    }
+    console.log('createClient sucess');
+    return true;
 };
 
 
@@ -104,7 +103,7 @@ ipcMain.handle('rpc-handling', (event, ...args) => {
     console.log('Activity set!', '\nRecieved object: ', args[0]);
 });
 
-ipcMain.handle('rpc-login', (event, ...args) => {
+ipcMain.handle('rpc-login', async (event, ...args) => {
     // clientId is always 19 characters long and only contains strings.
     // The Number constructor will try to make a type number with the string,
     // if it's not able to it will return NaN wich is falsy.
@@ -119,10 +118,12 @@ ipcMain.handle('rpc-login', (event, ...args) => {
         console.log(error);
     } finally {
         // If createClient is able to log in then send true to activate Connection status icon. If not turn it off
-        if (createClient(DiscordRPC, 'ipc', args[0].clientId)) {
-            win.webContents.send('rpc-login-renderer', true)
+        if (await createClient(DiscordRPC, 'ipc', args[0].clientId)) {
+            console.log('Sending true');
+            win.webContents.send('rpc-login-renderer', 'sajfopasjfosapfjopsafjasopjfoas')
             return;
         }
+        console.log('Sending false');
         win.webContents.send('rpc-login-renderer', false);
     }
 });

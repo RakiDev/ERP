@@ -92,7 +92,7 @@ Los nombres de las imagenes que subas son lo que se usa en la app para actualiza
 </div>
 <br>
 
-And that's it! Enjoy your Easy Rich Presence!
+¡Y eso es todo! ¡Disfruta de tu Easy Rich Presence!
 
 ## Ideas, sugerencias y bugs
 

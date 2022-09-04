@@ -22,7 +22,6 @@ Buena pregunta, déjame mostrarte mi perfil:
 
 ## Cómo usarlo
 
-While **ERP** does most of the job, it needs an app to connect to, and I'll show you how to *quickly* set it up!
 A pesar de que **ERP** hace la mayoría del trabajo, necesita una aplicación a la que conectarse, ¡y te mostraré
 como prepararla *rápidamente*!
 <br>
@@ -56,10 +55,6 @@ Es hora de entrar a la aplicación, ¿no?
     <img src="./img/readme/example6.png" style="border-radius: 5px;">
 </div>
 
-This is the first thing you'll see when opening the app, here you have all the options to set up the Rich Presence to your liking (more on that later). 
-Something really important to take in mind is the dot next to "Connection status", a grey color means that ERP is not yet connected, while a green color 
-means it is properly connected. But how do we log in?
-
 Esto es lo primero que verás al abrir la app, aquí tienes todas las opciones para configurar la Rich Presence a tu gusto (más sobre eso adelante). 
 
 Algo muy importante a tener en cuenta es el circulito al lado de "Connection status", un color *gris* significa que ERP todavía no está conectada, mientras que un color *verde* te dice que está conectado correctamente. Pero, ¿cómo nos logeamos?
@@ -82,8 +77,8 @@ Los nombres de las imagenes que subas son lo que se usa en la app para actualiza
     <img src="./img/readme/example2.png" style="border-radius: 5px;">
 </div>
 <br>
-"Large image text" and "Small image text" are texts shown when hovering over the image they are linked:
-"Large image text" y "Small image text" son textos que se muestran cuando ponés por encima el mouse, de acuerdo con la imagen a la que estén relacionados.
+
+"Large image text" y "Small image text" son textos que se muestran cuando ponés por encima el mouse, de acuerdo con la imagen a la que estén relacionados: 
 <br>
 
 <div align="center">

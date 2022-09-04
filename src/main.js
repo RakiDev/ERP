@@ -30,14 +30,14 @@ const setActivity = async (object, RPC) => {
             smallImageText: `${ object.smallImageText ? object.smallImageText : "Small image text!"}`,
             instance: false,
             buttons: [
-                {
+                /* {
                     label: 'Youtube',
                     url: 'https://www.youtube.com'
                 },
                 {
                     label: 'Google',
                     url: 'https://www.google.com'
-                }
+                } */
             ]
         });
     } catch (error) {

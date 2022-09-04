@@ -29,16 +29,16 @@ const setActivity = async (object, RPC) => {
             smallImageKey: `${ object.smallImageKey ? object.smallImageKey : "discord-icon"}`,
             smallImageText: `${ object.smallImageText ? object.smallImageText : "Small image text!"}`,
             instance: false,
-            buttons: [
-                /* {
+            /* buttons: [
+                {
                     label: 'Youtube',
                     url: 'https://www.youtube.com'
                 },
                 {
                     label: 'Google',
                     url: 'https://www.google.com'
-                } */
-            ]
+                }
+            ] */
         });
     } catch (error) {
         notification('Error', 'Could not update rich presence');

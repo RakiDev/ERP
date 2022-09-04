@@ -96,6 +96,12 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) loadMainWindow();
 });
 
+// When all windows closed, do nothing to prevent default exit behavior:
+// Passing an empty function prevents the app from closing altogether, 
+// allowing us to have a background-process-like behavior
+app.on('window-all-closed', () => {
+
+});
 
 ipcMain.handle('rpc-handling', (event, ...args) => {
     if (!RPC) return notification('Error', 'You haven\'t logged in yet');

@@ -124,7 +124,8 @@ label span {
 }
   
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="url"] {
   background-color: #303339;
   border: 1px solid #222428;
   width: 100%;

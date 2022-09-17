@@ -16,11 +16,19 @@ const createClient = async (DiscordRPC, transport, clientId) => {
     return true;
 };
 
+const processButtons = (buttonOneName, buttonOneLink, buttonTwoName, buttonTwoLink) => {
+    const buttons = [];
+    console.log(buttonOneLink, buttonOneName);
+    if (!!(buttonOneName && buttonOneLink)) buttons.push({ label: `${buttonOneName}`, url: `${buttonOneLink}` });
+    if (!!(buttonTwoName && buttonTwoLink)) buttons.push({ label: `${buttonTwoName}`, url: `${buttonTwoLink}` });
+    console.log(buttons);
+    return buttons;
+};
 
 const setActivity = async (object, RPC) => {
     if (!RPC) return;
     try {
-        await RPC.setActivity({
+        const RPCconfig = {
             details: `${ object.details ? object.details : "Testing presence" }`,
             state: `${ object.state ? object.state : "Testing RPC" }`,
             startTimestamp: Date.now(),
@@ -29,17 +37,13 @@ const setActivity = async (object, RPC) => {
             smallImageKey: `${ object.smallImageKey ? object.smallImageKey : "discord-icon"}`,
             smallImageText: `${ object.smallImageText ? object.smallImageText : "Small image text!"}`,
             instance: false,
-            /* buttons: [
-                {
-                    label: 'Youtube',
-                    url: 'https://www.youtube.com'
-                },
-                {
-                    label: 'Google',
-                    url: 'https://www.google.com'
-                }
-            ] */
-        });
+        };
+        // The buttons property on RPCconfig must not be undefined (only an array with max two objects, 
+        // with the properties label and url defined), so we have to check if there is any buttons
+        // from the user input. If there are, then and only then we set the property.
+        const buttonArray = processButtons(object.buttonOneName, object.buttonOneLink, object.buttonTwoName, object.buttonTwoLink);
+        if (buttonArray.length > 0) RPCconfig.buttons = buttonArray;
+        await RPC.setActivity(RPCconfig);
     } catch (error) {
         notification('Error', 'Could not update rich presence');
         console.error(error);
